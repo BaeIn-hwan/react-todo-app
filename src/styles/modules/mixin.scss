@@ -1,0 +1,16 @@
+/* 사용법 : @include line(라인수) */
+@mixin line($lineCount: 1) {
+  @if $lineCount == 1 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  } @else {
+    -webkit-box-orient: vertical;
+    display: block;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    -webkit-line-clamp: $lineCount;
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "content": "HTML",
+      "completed": true
+    },
+    {
+      "id": 2,
+      "content": "CSS",
+      "completed": false
+    },
+    {
+      "id": 3,
+      "content": "Javascript",
+      "completed": true
+    },
+    {
+      "id": "045eb100-69a5-451e-a0b8-9c0e7fea6e5d",
+      "content": "qwer"
+    },
+    {
+      "id": "cf9902a1-deca-46f6-9f81-9c92723f845d",
+      "content": "qwerqwer",
+      "completed": false
+    },
+    {
+      "id": "cfe075f5-7723-4232-8b4c-1776076732e6",
+      "content": "aaa",
+      "completed": false
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "Lee",
+      "role": "developer"
+    },
+    {
+      "id": 2,
+      "name": "Kim",
+      "role": "designer"
+    }
+  ]
+}

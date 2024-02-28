@@ -1,0 +1,139 @@
+* {
+  -webkit-text-size-adjust: none;
+  box-sizing: border-box;
+}
+
+html,
+body,
+div,
+header,
+footer,
+article,
+section,
+aside,
+nav,
+figure,
+figcaption,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+li,
+dl,
+dt,
+dd,
+details,
+summary,
+span,
+a,
+img,
+em,
+i,
+table,
+caption,
+thead,
+tbody,
+tr,
+th,
+td,
+form,
+fieldset,
+legend,
+label,
+input,
+button,
+iframe,
+video,
+textarea {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  font-family: Pretendard, sans-serif;
+  line-height: normal;
+}
+
+a,
+a:link,
+a:visited,
+a:active,
+a:hover {
+  text-decoration: none;
+}
+
+em,
+i,
+address {
+  font-style: normal;
+}
+
+ol,
+ul,
+dl {
+  list-style: none;
+}
+
+img,
+fieldset,
+iframe {
+  border: none;
+}
+
+legend,
+caption {
+  display: none;
+}
+
+table {
+  table-layout: fixed;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+input {
+  vertical-align: middle;
+
+  &::-ms-clear {
+    display: none;
+  }
+}
+
+input[type="text"],
+input[type="password"],
+input[type="time"],
+input[type="date"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="search"] {
+  appearance: none;
+}
+
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+input[type="file"] {
+  border: 0;
+  border-radius: 0;
+  background: none;
+  appearance: button;
+  cursor: pointer;
+}
+
+select {
+  appearance: none;
+}
+
+textarea {
+  resize: none;
+  appearance: none;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}

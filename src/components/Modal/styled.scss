@@ -1,0 +1,20 @@
+.dim {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(0 0 0 / 35%);
+}
+
+.modal {
+  min-width: 400px;
+  max-width: 80%;
+  border-radius: 6px;
+  background: #fff;
+  box-shadow: 0 12px 24px rgba(33, 38, 45, 0.12);
+}

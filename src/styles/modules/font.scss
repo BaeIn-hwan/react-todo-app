@@ -1,0 +1,72 @@
+@charset "utf-8";
+
+/*
+ * Pretendard
+ * https://github.com/webfontworld/pretendard
+ */
+
+@font-face {
+  font-weight: 300;
+  font-family: Pretendard;
+  font-style: normal;
+  src: local("pretendard-Light"),
+    url("@/assets/fonts/Pretendard-Light.woff2") format("woff2"),
+    url("@/assets/fonts/Pretendard-Light.woff") format("woff"); /* Modern Browsers */
+
+  font-display: swap;
+}
+
+@font-face {
+  font-weight: 400;
+  font-family: Pretendard;
+  font-style: normal;
+  src: local("pretendard-Regular"),
+    url("@/assets/fonts/Pretendard-Regular.woff2") format("woff2"),
+    url("@/assets/fonts/Pretendard-Regular.woff") format("woff"); /* Modern Browsers */
+
+  font-display: swap;
+}
+
+@font-face {
+  font-weight: 500;
+  font-family: Pretendard;
+  font-style: normal;
+  src: local("pretendard-Medium"),
+    url("@/assets/fonts/Pretendard-Medium.woff2") format("woff2"),
+    url("@/assets/fonts/Pretendard-Medium.woff") format("woff"); /* Modern Browsers */
+
+  font-display: swap;
+}
+
+@font-face {
+  font-weight: 600;
+  font-family: Pretendard;
+  font-style: normal;
+  src: local("pretendard-SemiBold"),
+    url("@/assets/fonts/Pretendard-SemiBold.woff2") format("woff2"),
+    url("@/assets/fonts/Pretendard-SemiBold.woff") format("woff"); /* Modern Browsers */
+
+  font-display: swap;
+}
+
+@font-face {
+  font-weight: 700;
+  font-family: Pretendard;
+  font-style: normal;
+  src: local("pretendard-Bold"),
+    url("@/assets/fonts/Pretendard-Bold.woff2") format("woff2"),
+    url("@/assets/fonts/Pretendard-Bold.woff") format("woff"); /* Modern Browsers */
+
+  font-display: swap;
+}
+
+@font-face {
+  font-weight: 900;
+  font-family: Pretendard;
+  font-style: normal;
+  src: local("pretendard-ExtraBold"),
+    url("@/assets/fonts/Pretendard-ExtraBold.woff2") format("woff2"),
+    url("@/assets/fonts/Pretendard-ExtraBold.woff") format("woff"); /* Modern Browsers */
+
+  font-display: swap;
+}

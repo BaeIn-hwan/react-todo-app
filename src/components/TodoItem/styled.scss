@@ -1,0 +1,90 @@
+.todo-item {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid var(--border-default);
+  border-radius: 6px;
+
+  &__label {
+    flex: 1 1;
+    cursor: pointer;
+
+    input:checked {
+      & ~ .todo-item__icon {
+        border-color: var(--primary-peach);
+
+        &::before {
+          background-color: var(--primary-peach);
+        }
+      }
+
+      & ~ .todo-item__text {
+        text-decoration: line-through;
+      }
+    }
+  }
+
+  &__icon {
+    display: block;
+    position: relative;
+    width: 18px;
+    height: 18px;
+    border: 1px solid var(--system-gray-300);
+    border-radius: 4px;
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 10px;
+      height: 10px;
+      border-radius: 2px;
+      background-color: transparent;
+      transform: translate3d(-50%, -50%, 0);
+    }
+  }
+
+  &__text {
+    margin-top: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    user-select: none;
+  }
+
+  &__ctrl {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    &-btn {
+      padding: 5px;
+      border-radius: 5px;
+      font-size: 0;
+      color: #fff;
+      transition: all 0.35s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+      svg {
+        width: 18px;
+        height: 18px;
+      }
+
+      &--modify {
+        background-color: var(--system-gray-400);
+
+        &:hover {
+          background-color: var(--system-gray-500);
+        }
+      }
+
+      &--delete {
+        background-color: var(--danger-red);
+
+        &:hover {
+          background-color: var(--danger-dark);
+        }
+      }
+    }
+  }
+}
