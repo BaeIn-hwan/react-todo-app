@@ -1,0 +1,11 @@
+# REACT TODOLIST
+
+##
+
+```
+npm install
+
+npm run dev
+
+npm run build
+```
