@@ -1,6 +1,9 @@
 import { useState } from "react";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
+import DatePicker from "react-datepicker";
+
+import "react-datepicker/dist/react-datepicker.min.css";
 
 import * as T from "./types";
 import "./styled.scss";
@@ -25,24 +28,26 @@ const importanceList = [
 export default function CreateTodo(props: T.IPropsCreateTodo) {
   const { open, close } = props;
 
-  const [value, setValue] = useState("");
+  const [content, setContent] = useState("");
   const [importance, setImportance] = useState("middle");
+  const [date, setDate] = useState(new Date());
 
   const onSubmit = () => {
-    if (value === "" && importance === "") return;
+    if (content === "" && importance === "") return;
 
     postTodoList();
   };
 
   const postTodoList = async () => {
     try {
-      const res = await axios.post(`//localhost:3000/todos`, {
+      const response = await axios.post(`//localhost:3000/todos`, {
         id: uuidv4(),
-        content: value,
+        content,
+        date,
         completed: false,
       });
 
-      if (res.status && res.status === 201) {
+      if (response.status && response.status && response.status === 201) {
         alert("등록완료");
         close();
       }
@@ -59,7 +64,7 @@ export default function CreateTodo(props: T.IPropsCreateTodo) {
             type="text"
             placeholder="할일을 입력하세요"
             className="create-todo__input"
-            onChange={(e) => setValue(e.target.value)}
+            onChange={(e) => setContent(e.target.value)}
           />
         </div>
 
@@ -82,6 +87,18 @@ export default function CreateTodo(props: T.IPropsCreateTodo) {
               </label>
             ))}
           </div>
+        </div>
+
+        <div className="create-todo__row">
+          <strong className="create-todo__title">날짜</strong>
+
+          <DatePicker
+            className="datepicker"
+            dateFormat="yyyy.MM.dd"
+            selected={date}
+            onChange={(date: Date) => setDate(date)}
+            disabledKeyboardNavigation
+          />
         </div>
 
         <div className="create-todo__ctrl">

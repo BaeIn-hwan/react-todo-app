@@ -66,13 +66,13 @@
         color: var(--primary-dark);
       }
 
-      &--done {
+      &--completed {
       }
     }
   }
 
   &-list {
-    margin-top: 24px;
+    margin-top: 10px;
 
     &__item {
       &:not(:first-child) {

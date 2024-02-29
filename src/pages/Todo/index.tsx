@@ -1,12 +1,65 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 import "./styled.scss";
 
-import TodoItem from "@/components/TodoItem";
 import CreateTodo from "@/components/CreateTodo";
+import TodoList from "@/components/TodoList";
+import TodoStatus from "@/components/TodoStatus";
+import { TItem } from "@/components/TodoItem/types";
 
 export default function Todo() {
+  const [todoList, setTodoList] = useState<TItem[] | []>([]);
   const [modal, setModal] = useState(false);
+
+  const getTodoList = async () => {
+    try {
+      const response = await axios.get(`//localhost:3000/todos`);
+
+      console.log(response);
+      setTodoList(response.data.reverse());
+    } catch (error) {
+      console.error(`GetTodoList Error.. ${error}`);
+    }
+  };
+
+  const onCompleted = (e: React.ChangeEvent<HTMLInputElement>, id: string) => {
+    putTodoList(id);
+  };
+
+  const putTodoList = async (id: string) => {
+    try {
+      const response = await axios.patch(`//localhost:3000/todos/${id}`, {
+        completed: !todoList.find((item) => item.id === id)?.completed,
+      });
+
+      if (response && response.status && response.status === 200) getTodoList();
+    } catch (error) {
+      console.error(`DeleteTodoList Error.. ${error}`);
+    }
+  };
+
+  const onDelete = (id: string) => {
+    const isDelete = confirm("삭제하시겠습니까?");
+
+    if (isDelete) {
+      deleteTodoList(id);
+    }
+  };
+
+  const deleteTodoList = async (id: string) => {
+    try {
+      const response = await axios.delete(`//localhost:3000/todos/${id}`);
+
+      if (response && response.status && response.status === 200) getTodoList();
+    } catch (error) {
+      console.error(`DeleteTodoList Error.. ${error}`);
+    }
+  };
+
+  useEffect(() => {
+    getTodoList();
+  }, []);
 
   return (
     <>
@@ -35,36 +88,13 @@ export default function Todo() {
           />
         </div>
 
-        <div className="todo-status">
-          <div className="todo-status__item">
-            <span className="todo-status__title">전체</span>
-            <span className="todo-status__count">0</span>
-          </div>
+        <TodoStatus list={todoList} />
 
-          <div className="todo-status__item">
-            <span className="todo-status__title">진행중</span>
-            <span className="todo-status__count todo-status__count--ing">
-              0
-            </span>
-          </div>
-
-          <div className="todo-status__item">
-            <span className="todo-status__title">진행완료</span>
-            <span className="todo-status__count todo-status__count--done">
-              0
-            </span>
-          </div>
-        </div>
-
-        <ul className="todo-list">
-          {Array.from({ length: 2 }).map((_, i) => {
-            return (
-              <li className="todo-list__item" key={i}>
-                <TodoItem />
-              </li>
-            );
-          })}
-        </ul>
+        <TodoList
+          list={todoList}
+          onCompleted={onCompleted}
+          onDelete={onDelete}
+        />
 
         <div className="todo-floating">
           <button

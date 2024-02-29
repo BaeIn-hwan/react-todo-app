@@ -1,13 +1,37 @@
+import * as T from "./types";
 import "./styled.scss";
 
-export default function TodoItem() {
+export default function TodoItem(props: T.IPropsTodoItem) {
+  const {
+    item: { id, content, date, completed },
+    onCompleted,
+    onDelete,
+  } = props;
+
   return (
     <div className="todo-item">
-      <label className="todo-item__label">
-        <input type="checkbox" className="blind" />
-        <i className="todo-item__icon"></i>
-        <p className="todo-item__text">블라블라</p>
-      </label>
+      <div>
+        <label className="todo-item__label">
+          <input
+            type="checkbox"
+            className="blind"
+            defaultChecked={completed}
+            onChange={(e) => onCompleted(e, id)}
+          />
+          <i className="todo-item__icon"></i>
+        </label>
+
+        <div>
+          <span>{date}</span>
+          <p
+            className={`todo-item__text ${
+              completed ? "todo-item__text--completed" : ""
+            }`}
+          >
+            {content}
+          </p>
+        </div>
+      </div>
 
       <div className="todo-item__ctrl">
         <button
@@ -31,7 +55,7 @@ export default function TodoItem() {
 
         <button
           className="todo-item__ctrl-btn todo-item__ctrl-btn--delete"
-          onClick={(e) => console.log(e)}
+          onClick={() => onDelete(id)}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
